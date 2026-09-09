@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ROOT CSS VARIABLES (Light Theme Default: Warm Beige / Cream, Espresso, Sage Green, Warm Tan) */
+:root {
+  --background: #F5F1E8;          /* Warm cream / off-white background */
+  --foreground: #3D2B1F;          /* Deep espresso brown */
+  
+  --card: #EDE7DB;                /* Warm linen paper card */
+  --card-foreground: #3D2B1F;
+  --card-subtle: #E2DACB;         /* Warm sand accent surface */
+  
+  --popover: #FAF7F0;
+  --popover-foreground: #3D2B1F;
+  
+  --primary: #5C6B4E;             /* Muted sage / forest green */
+  --primary-foreground: #F5F1E8;
+  --primary-hover: #4A5D42;
+  
+  --secondary: #C4A574;           /* Warm tan / clay */
+  --secondary-foreground: #3D2B1F;
+  
+  --muted: #E2D9C8;
+  --muted-foreground: #705E4D;     /* Warm taupe */
+  
+  --accent: #5C6B4E;
+  --accent-foreground: #F5F1E8;
+  --accent-cyan: #6E8B74;         /* Sage mist */
+  --accent-amber: #C4A574;        /* Warm clay tan */
+  --accent-emerald: #4A5D42;      /* Deep forest moss */
+  --accent-rose: #B85D43;         /* Terracotta */
+  
+  --border: #D8CEBE;              /* Warm tan border */
+  --input: #D8CEBE;
+  --ring: #5C6B4E;
+
+  --shadow-subtle: 0 1px 3px 0 rgba(61, 43, 31, 0.08), 0 1px 2px -1px rgba(61, 43, 31, 0.05);
+  --shadow-card: 0 4px 20px -2px rgba(61, 43, 31, 0.09), 0 2px 6px -1px rgba(61, 43, 31, 0.04);
+  --shadow-lift: 0 14px 32px -4px rgba(61, 43, 31, 0.15), 0 4px 10px -2px rgba(61, 43, 31, 0.08);
+  --shadow-tactile: 3px 3px 0px 0px rgba(61, 43, 31, 0.85);
+}
+
+/* DARK THEME CSS VARIABLES (Cohesive Deep Espresso Night, Warm Beige text, Sage Green & Tan) */
+.dark, html.dark {
+  --background: #241C15;          /* Deep espresso-black */
+  --foreground: #F5F1E8;          /* Warm beige cream */
+  
+  --card: #2D231B;                /* Deep charcoal brown card */
+  --card-foreground: #F5F1E8;
+  --card-subtle: #382C22;         /* Warm roast brown */
+  
+  --popover: #2D231B;
+  --popover-foreground: #F5F1E8;
+  
+  --primary: #7A8E6B;             /* Soft earthy sage */
+  --primary-foreground: #241C15;
+  --primary-hover: #8BA07B;
+  
+  --secondary: #C4A574;           /* Warm clay tan */
+  --secondary-foreground: #F5F1E8;
+  
+  --muted: #382C22;
+  --muted-foreground: #A89C8E;     /* Warm khaki dust */
+  
+  --accent: #7A8E6B;
+  --accent-foreground: #241C15;
+  --accent-cyan: #8EAA95;         /* Soft sage highlight */
+  --accent-amber: #D4A373;        /* Warm clay */
+  --accent-emerald: #6E8B74;      /* Moss */
+  --accent-rose: #C97A63;         /* Terracotta */
+  
+  --border: #443528;              /* Deep earthy border */
+  --input: #443528;
+  --ring: #7A8E6B;
+
+  --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 8px 24px -4px rgba(0, 0, 0, 0.55);
+  --shadow-lift: 0 16px 36px -4px rgba(0, 0, 0, 0.65);
+  --shadow-tactile: 3px 3px 0px 0px rgba(122, 142, 107, 0.4);
+}
+
+@layer base {
+  html, body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  /* Custom clean scrollbar */
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(122, 142, 107, 0.35);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+  }
+}
+
+/* Subtle dot paper pattern */
+.bg-tactile-dots {
+  background-image: radial-gradient(rgba(92, 107, 78, 0.18) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark .bg-tactile-dots, html.dark .bg-tactile-dots {
+  background-image: radial-gradient(rgba(245, 241, 232, 0.08) 1px, transparent 1px);
+}
+
+/* Topographic Contour Texture */
+.bg-topographic {
+  background-image: radial-gradient(ellipse at center, rgba(196, 165, 116, 0.06) 0%, transparent 70%),
+    linear-gradient(to right, rgba(92, 107, 78, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(92, 107, 78, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 36px 36px, 36px 36px;
+}
+
+.dark .bg-topographic, html.dark .bg-topographic {
+  background-image: radial-gradient(ellipse at center, rgba(122, 142, 107, 0.08) 0%, transparent 70%),
+    linear-gradient(to right, rgba(245, 241, 232, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 241, 232, 0.04) 1px, transparent 1px);
+}
+
+/* Continuous Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+/* Tape / Note aesthetic in earthy tones */
+.tape-strip {
+  position: absolute;
+  height: 20px;
+  width: 90px;
+  background: rgba(196, 165, 116, 0.45);
+  border: 1px dashed rgba(140, 110, 60, 0.5);
+  backdrop-filter: blur(2px);
+  transform: rotate(-3deg);
+  z-index: 20;
+  pointer-events: none;
+}
+.dark .tape-strip, html.dark .tape-strip {
+  background: rgba(196, 165, 116, 0.2);
+  border: 1px dashed rgba(196, 165, 116, 0.4);
+}
+
+/* Physical Photo / Card Lift */
+.photo-lift-card {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease;
+}
+.photo-lift-card:hover {
+  transform: translateY(-5px) rotate(-0.3deg);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Editorial Serif text styling */
+.font-editorial {
+  font-family: 'Fraunces', Georgia, serif;
+}
