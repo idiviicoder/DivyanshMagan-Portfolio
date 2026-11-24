@@ -61,18 +61,18 @@ export const About: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card border border-border text-primary text-xs font-mono font-semibold uppercase tracking-wider mb-3 shadow-subtle">
               <Brain className="w-3.5 h-3.5" />
-              Background & Approach
+              Background & Narrative
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-black tracking-tight text-foreground">
-              Turning unstructured chaos into <span className="italic font-normal text-primary">proven intelligence</span>.
+              Bridging production AI agents with <span className="italic font-normal text-primary">GTM engineering</span>.
             </h2>
           </div>
           <span className="font-handwriting text-accent-amber text-lg sm:text-xl -rotate-2 font-bold shrink-0 self-start sm:self-end">
-            (the backstory ✍️)
+            (15 mos. in production ✦)
           </span>
         </div>
 
-        {/* Narrative & Focus - Open, clean editorial layout without nested boxes */}
+        {/* Narrative & Focus - Open, clean editorial layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-14">
           <div className="lg:col-span-7 space-y-4">
             <p className="text-base sm:text-lg text-foreground leading-relaxed font-normal">
@@ -80,7 +80,7 @@ export const About: React.FC = () => {
             </p>
             {/* Cursive Marginal Quote */}
             <p className="font-handwriting text-primary text-lg sm:text-xl rotate-1 pt-1 font-semibold">
-              ~ "Obsessed with eliminating retrieval latency & building deterministic agent pipelines."
+              ~ "Obsessed with helping teams building AI agents test & ship them reliably."
             </p>
           </div>
 
@@ -88,19 +88,19 @@ export const About: React.FC = () => {
             <div className="flex items-start gap-2.5">
               <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <span>
-                <strong className="text-foreground">Production AI Focus:</strong> Low-latency hybrid retrieval, domain embeddings (VoyageAI, Azure), and multi-stage LLM chains.
+                <strong className="text-foreground">AI & Agent Systems:</strong> Production RAG pipelines (Pinecone, Azure AI Search), multi-stage LLM chains (Gemini, GPT, Document AI, Tavily), and versioned provenance evidence stores.
               </span>
             </div>
             <div className="flex items-start gap-2.5">
               <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <span>
-                <strong className="text-foreground">Scale & Resilience:</strong> Distributed scraping handling anti-bot protections and sub-second queries with FastAPI & Elasticsearch.
+                <strong className="text-foreground">GTM & Distribution:</strong> Hands-on experience across CRM-led outbound, ATL/BTL/TTL channel mix, competitive analysis, and the instrument-measure-iterate closed loop.
               </span>
             </div>
             <div className="flex items-start gap-2.5">
               <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <span>
-                <strong className="text-foreground">Academic Rigor:</strong> University of Delhi Rank 2 in CS, building on solid algorithmic and data structure foundations.
+                <strong className="text-foreground">Leadership & Community:</strong> ACM Chapter Vice-Chair (50+ members), dual hackathon organizer & national podium finalist, University of Delhi Rank 2 in CS, CDAC MCA Rank 4.
               </span>
             </div>
           </div>
@@ -109,7 +109,7 @@ export const About: React.FC = () => {
         {/* Minimalist Stat Strip with Cursive Lead-in */}
         <div className="relative">
           <div className="flex items-center justify-between mb-3 px-1">
-            <span className="font-mono text-xs text-muted-foreground uppercase font-semibold">Key Metrics</span>
+            <span className="font-mono text-xs text-muted-foreground uppercase font-semibold">Key Metrics & Record</span>
             <span className="font-handwriting text-primary text-base font-bold rotate-1 select-none">
               proven engineering impact, zero vanity ⤷
             </span>

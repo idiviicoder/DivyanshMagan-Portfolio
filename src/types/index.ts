@@ -15,6 +15,12 @@ export interface Project {
   metrics?: string[];
 }
 
+export interface ExperienceSubSection {
+  title: string;
+  subtitle?: string;
+  bullets: string[];
+}
+
 export interface ExperienceItem {
   id: string;
   role: string;
@@ -22,7 +28,10 @@ export interface ExperienceItem {
   location: string;
   period: string;
   isCurrent: boolean;
+  type?: 'Full-Time' | 'Freelance' | 'Independent Venture' | 'Family Business';
+  category?: 'AI & GTM Systems' | 'Growth & GTM' | 'Entrepreneurship';
   description: string;
+  subSections?: ExperienceSubSection[];
   bullets: string[];
   impactBadges: string[];
   technologies: string[];

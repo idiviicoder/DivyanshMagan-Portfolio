@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, MapPin, Sparkles, CheckCircle, Database, Search, Cpu, Bot, Terminal, Globe } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Sparkles, CheckCircle, Database, Search, Cpu, Bot, Terminal, Globe, TrendingUp, Layers, Rocket } from 'lucide-react';
 import { EXPERIENCES } from '../../data/portfolioData';
 
 export const Experience: React.FC = () => {
+  const [filterCategory, setFilterCategory] = useState<string>('All');
+
+  const categories = ['All', 'AI & GTM Systems', 'Growth & GTM', 'Entrepreneurship'];
+
+  const filteredExperiences = filterCategory === 'All'
+    ? EXPERIENCES
+    : EXPERIENCES.filter((exp) => exp.category === filterCategory);
+
   const getBulletIcon = (index: number) => {
-    switch (index) {
+    switch (index % 6) {
       case 0:
         return <Search className="w-4 h-4 text-primary shrink-0" />;
       case 1:
@@ -23,29 +31,68 @@ export const Experience: React.FC = () => {
     }
   };
 
+  const getTypeBadgeClass = (type?: string) => {
+    switch (type) {
+      case 'Full-Time':
+        return 'bg-primary/10 text-primary border-primary/20';
+      case 'Freelance':
+        return 'bg-accent-emerald/10 text-accent-emerald border-accent-emerald/20';
+      case 'Independent Venture':
+        return 'bg-accent-amber/10 text-accent-amber border-accent-amber/20';
+      case 'Family Business':
+        return 'bg-secondary/40 text-foreground border-border';
+      default:
+        return 'bg-primary/10 text-primary border-primary/20';
+    }
+  };
+
   return (
     <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-5xl mx-auto">
         
         {/* Editorial Section Title */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4 border-b border-border pb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 border-b border-border pb-8">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card border border-border text-primary text-xs font-mono font-semibold uppercase tracking-wider mb-3 shadow-subtle">
               <Briefcase className="w-3.5 h-3.5" />
               Career Timeline
             </div>
             <h2 className="text-3xl sm:text-5xl font-serif font-black tracking-tight text-foreground">
-              Production <span className="italic font-normal text-primary">Engineering</span> Track Record
+              Production <span className="italic font-normal text-primary">AI & GTM</span> Track Record
             </h2>
           </div>
           <div className="flex flex-col items-start md:items-end gap-1">
             <span className="font-handwriting text-accent-amber text-lg font-bold -rotate-1 select-none">
-              where real impact happened ✦
+              15 months in production ✦
             </span>
             <span className="text-xs font-mono text-muted-foreground bg-card-subtle px-3 py-1.5 rounded-full border border-border">
-              Sept 2024 – Present
+              Sept 2025 – Present & Ventures
             </span>
           </div>
+        </div>
+
+        {/* Filter Pills */}
+        <div className="flex flex-wrap gap-2 mb-10">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setFilterCategory(cat)}
+              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all flex items-center gap-2 ${
+                filterCategory === cat
+                  ? 'bg-primary text-primary-foreground shadow-card font-bold'
+                  : 'bg-card text-muted-foreground border border-border hover:text-foreground hover:bg-card-subtle'
+              }`}
+            >
+              {cat === 'All' && <Layers className="w-3.5 h-3.5" />}
+              {cat === 'AI & GTM Systems' && <Cpu className="w-3.5 h-3.5" />}
+              {cat === 'Growth & GTM' && <TrendingUp className="w-3.5 h-3.5" />}
+              {cat === 'Entrepreneurship' && <Rocket className="w-3.5 h-3.5" />}
+              <span>{cat}</span>
+              <span className="text-[10px] font-mono opacity-80">
+                ({cat === 'All' ? EXPERIENCES.length : EXPERIENCES.filter(e => e.category === cat).length})
+              </span>
+            </button>
+          ))}
         </div>
 
         {/* Timeline Container */}
@@ -53,7 +100,7 @@ export const Experience: React.FC = () => {
           {/* Vertical Connecting Line */}
           <div className="absolute left-4 sm:left-8 top-6 bottom-6 w-0.5 bg-border hidden sm:block" />
 
-          {EXPERIENCES.map((exp) => (
+          {filteredExperiences.map((exp) => (
             <div key={exp.id} className="relative mb-12 last:mb-0">
               
               {/* Timeline Tactile Stamp Node */}
@@ -76,9 +123,11 @@ export const Experience: React.FC = () => {
                       <h3 className="text-xl sm:text-2xl font-bold font-serif text-foreground">
                         {exp.role}
                       </h3>
-                      <span className="text-xs px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-semibold border border-primary/20">
-                        Full-Time
-                      </span>
+                      {exp.type && (
+                        <span className={`text-xs px-2.5 py-0.5 rounded-full font-semibold border ${getTypeBadgeClass(exp.type)}`}>
+                          {exp.type}
+                        </span>
+                      )}
                     </div>
 
                     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
@@ -97,7 +146,7 @@ export const Experience: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Impact Highlight Badges with Cursive Side Tag */}
+                {/* Impact Highlight Badges */}
                 <div className="py-4 flex flex-wrap items-center justify-between gap-2 border-b border-border/50">
                   <div className="flex flex-wrap gap-2">
                     {exp.impactBadges.map((badge, idx) => (
@@ -111,30 +160,71 @@ export const Experience: React.FC = () => {
                     ))}
                   </div>
 
-                  <span className="font-handwriting text-accent-emerald text-base font-bold rotate-1 select-none">
-                    ~ automated 20+ hrs/wk of manual pharma search!
-                  </span>
+                  {exp.id === 'ras-lss' && (
+                    <span className="font-handwriting text-accent-emerald text-base font-bold rotate-1 select-none">
+                      ~ signal-based prospect intelligence & RAG
+                    </span>
+                  )}
+                  {exp.id === 'sanatan-seva' && (
+                    <span className="font-handwriting text-accent-emerald text-base font-bold rotate-1 select-none">
+                      ~ instrument-measure-iterate closed loop
+                    </span>
+                  )}
                 </div>
 
-                {/* Detailed Contribution Bullets */}
-                <div className="mt-6 space-y-3">
-                  {exp.bullets.map((bullet, bIdx) => (
-                    <div
-                      key={bIdx}
-                      className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed p-3 rounded-xl bg-card-subtle/50 hover:bg-card-subtle transition-colors border border-border/40"
-                    >
-                      <div className="mt-1">{getBulletIcon(bIdx)}</div>
-                      <span className="flex-1 text-foreground font-normal">
-                        {bullet}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                {/* Subsections (like Signals-to-Intelligence vs AI & Platform Engineering) OR Standard Bullets */}
+                {exp.subSections && exp.subSections.length > 0 ? (
+                  <div className="mt-6 space-y-6">
+                    {exp.subSections.map((sub, sIdx) => (
+                      <div key={sIdx} className="space-y-3">
+                        <div className="flex items-center justify-between pb-1.5 border-b border-border/60">
+                          <h4 className="text-sm font-bold text-foreground font-serif flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-primary" />
+                            {sub.title}
+                          </h4>
+                          {sub.subtitle && (
+                            <span className="text-[11px] font-mono text-accent-amber font-semibold bg-accent-amber/10 px-2 py-0.5 rounded-full border border-accent-amber/20">
+                              {sub.subtitle}
+                            </span>
+                          )}
+                        </div>
+
+                        <div className="space-y-2.5">
+                          {sub.bullets.map((bullet, bIdx) => (
+                            <div
+                              key={bIdx}
+                              className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed p-3 rounded-xl bg-card-subtle/50 hover:bg-card-subtle transition-colors border border-border/40"
+                            >
+                              <div className="mt-1">{getBulletIcon(bIdx)}</div>
+                              <span className="flex-1 text-foreground font-normal">
+                                {bullet}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="mt-6 space-y-3">
+                    {exp.bullets.map((bullet, bIdx) => (
+                      <div
+                        key={bIdx}
+                        className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed p-3 rounded-xl bg-card-subtle/50 hover:bg-card-subtle transition-colors border border-border/40"
+                      >
+                        <div className="mt-1">{getBulletIcon(bIdx)}</div>
+                        <span className="flex-1 text-foreground font-normal">
+                          {bullet}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {/* Tech Stack Chips */}
                 <div className="mt-8 pt-6 border-t border-border">
                   <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-2 font-bold">
-                    <Terminal className="w-3.5 h-3.5 text-primary" /> Stack & Ecosystem
+                    <Terminal className="w-3.5 h-3.5 text-primary" /> Key Capabilities & Stack
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech) => (

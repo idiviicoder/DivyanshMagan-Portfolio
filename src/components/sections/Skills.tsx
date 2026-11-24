@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Cpu, Code2, Globe, Database, Wrench, Layers } from 'lucide-react';
+import { Cpu, Code2, Database, Wrench, Layers, TrendingUp, Users } from 'lucide-react';
 import { SKILL_CATEGORIES } from '../../data/portfolioData';
 
 export const Skills: React.FC = () => {
@@ -8,16 +8,18 @@ export const Skills: React.FC = () => {
 
   const getCategoryIcon = (categoryName: string) => {
     switch (categoryName) {
-      case 'AI / ML & Search':
+      case 'AI & Agent Systems':
         return <Cpu className="w-4 h-4 text-primary" />;
-      case 'Languages':
+      case 'Languages & Backend':
         return <Code2 className="w-4 h-4 text-accent-amber" />;
-      case 'Web & Backend Development':
-        return <Globe className="w-4 h-4 text-primary" />;
-      case 'Databases & Storage':
-        return <Database className="w-4 h-4 text-accent-amber" />;
-      case 'Tools & Web Scraping':
-        return <Wrench className="w-4 h-4 text-primary" />;
+      case 'Data & Search':
+        return <Database className="w-4 h-4 text-primary" />;
+      case 'Automation & Scraping':
+        return <Wrench className="w-4 h-4 text-accent-amber" />;
+      case 'GTM & Growth':
+        return <TrendingUp className="w-4 h-4 text-primary" />;
+      case 'Developer Community':
+        return <Users className="w-4 h-4 text-accent-amber" />;
       default:
         return <Layers className="w-4 h-4 text-primary" />;
     }
@@ -34,7 +36,7 @@ export const Skills: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card border border-border text-primary text-xs font-mono font-semibold uppercase tracking-wider mb-3 shadow-subtle">
               <Layers className="w-3.5 h-3.5" />
-              Technical Stack
+              Technical & GTM Stack
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-black tracking-tight text-foreground">
               Core <span className="italic font-normal text-primary">Capabilities</span> & Frameworks
@@ -45,7 +47,7 @@ export const Skills: React.FC = () => {
               click around to inspect toolbelt ⤷
             </span>
             <p className="text-xs sm:text-sm text-muted-foreground max-w-xs text-left md:text-right">
-              Production tools, libraries, and frameworks.
+              Production AI pipelines, GTM workflows, and developer community tooling.
             </p>
           </div>
         </div>
@@ -93,7 +95,7 @@ export const Skills: React.FC = () => {
                     <h3 className="text-lg font-bold text-foreground font-serif">
                       {selectedGroup.category}
                     </h3>
-                    <p className="text-xs text-muted-foreground">Production ready & actively used in projects</p>
+                    <p className="text-xs text-muted-foreground">Production ready & verified in real systems</p>
                   </div>
                 </div>
 
@@ -102,7 +104,7 @@ export const Skills: React.FC = () => {
                     ~ verified in production ✦
                   </span>
                   <span className="text-xs font-mono text-primary font-bold hidden md:inline">
-                    {selectedGroup.skills.length} Tools
+                    {selectedGroup.skills.length} Capabilities
                   </span>
                 </div>
               </div>

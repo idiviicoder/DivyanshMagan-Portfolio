@@ -58,7 +58,7 @@ export const Hero: React.FC<HeroProps> = ({ onShowToast }) => {
             {/* Editorial Title Mix (Serif + React Bits Reveal) */}
             <div className="space-y-3 relative w-full">
               <h1 className="text-4xl sm:text-6xl font-serif font-black tracking-tight text-foreground leading-[1.08]">
-                <TextReveal text="Crafting reliable AI & data systems." delay={0.1} />
+                <TextReveal text="Building reliable AI agents & GTM systems." delay={0.1} />
               </h1>
 
               {/* Rotating Role Badge */}
@@ -151,7 +151,7 @@ export const Hero: React.FC<HeroProps> = ({ onShowToast }) => {
               <div className="relative aspect-[4/4.8] w-full rounded-xl bg-card-subtle border border-border overflow-hidden group shadow-subtle">
                 <img
                   src="/images/profile.jpg"
-                  alt="Divyansh Magan - Software Engineer & AI Systems Builder"
+                  alt="Divyansh Magan - AI/LLM Software Engineer & GTM Systems"
                   className="w-full h-full object-cover object-top filter brightness-[1.01] contrast-[1.02] group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
 
@@ -176,7 +176,7 @@ export const Hero: React.FC<HeroProps> = ({ onShowToast }) => {
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                   <span className="font-mono text-[11px] text-muted-foreground">Focus:</span>
                 </div>
-                <span className="font-semibold text-foreground text-xs">Softwares and AI</span>
+                <span className="font-semibold text-foreground text-xs">AI & GTM Systems · DevRel</span>
               </div>
             </div>
           </motion.div>
@@ -186,4 +186,3 @@ export const Hero: React.FC<HeroProps> = ({ onShowToast }) => {
     </section>
   );
 };
-

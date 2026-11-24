@@ -33,13 +33,13 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-xs text-muted-foreground max-w-sm leading-relaxed">
-              Software Engineer specializing in production LLM/RAG systems, search infrastructure, and scalable data pipelines.
+              AI/LLM Software Engineer (15 months in production) transitioning into Developer Relations and GTM Engineering.
             </p>
 
             {/* Currently exploring status line */}
             <div className="mt-3 flex items-center gap-2 text-[11px] font-mono text-muted-foreground">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              <span>Exploring Agentic RAG & Hybrid Vector Indices</span>
+              <span>Leading R&D on Signals-to-Intelligence Platform</span>
             </div>
           </div>
 

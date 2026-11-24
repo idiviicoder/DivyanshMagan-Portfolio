@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/sections/Navbar';
 import { Hero } from './components/sections/Hero';
+import { TechMarquee } from './components/common/TechMarquee';
 import { About } from './components/sections/About';
 import { Experience } from './components/sections/Experience';
+import { Process } from './components/sections/Process';
 import { Projects } from './components/sections/Projects';
 import { Skills } from './components/sections/Skills';
 import { Education } from './components/sections/Education';
@@ -14,7 +16,7 @@ import { Toast, ToastMessage } from './components/common/Toast';
 import { ResumeModal } from './components/common/ResumeModal';
 
 export const App: React.FC = () => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false); // Default to warm beige/cream light theme per prompt
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [isResumeOpen, setIsResumeOpen] = useState<boolean>(false);
 
@@ -76,8 +78,10 @@ export const App: React.FC = () => {
       {/* Main Single Page Sections */}
       <main className="relative z-10 flex flex-col">
         <Hero onShowToast={showToast} />
+        <TechMarquee />
         <About />
         <Experience />
+        <Process />
         <Projects />
         <Skills />
         <Education />
@@ -91,4 +95,3 @@ export const App: React.FC = () => {
 };
 
 export default App;
-

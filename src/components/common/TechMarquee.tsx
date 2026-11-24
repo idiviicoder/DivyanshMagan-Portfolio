@@ -11,26 +11,32 @@ import {
   Boxes, 
   Workflow, 
   Sparkles,
-  Cloud
+  Cloud,
+  Users,
+  TrendingUp,
+  FileText
 } from 'lucide-react';
 
-// Component: SkipperUI inspired Infinite Tech Marquee
-// Integration: SkipperUI (https://skiper-ui.com) Continuous Marquee with pause on hover & warm earthy badges
+// Component: Infinite Tech & Capabilities Marquee
+// Features AI & Agent Systems, Data & Search, Automation, and GTM & DevRel ecosystems
 
 const TECH_ITEMS = [
-  { name: 'FastAPI', category: 'Backend', icon: Server },
-  { name: 'LangChain', category: 'AI / RAG', icon: Workflow },
-  { name: 'Elasticsearch', category: 'Search Engine', icon: Search },
-  { name: 'Redis Cache', category: 'In-Memory DB', icon: Database },
-  { name: 'VoyageAI Embeddings', category: 'Vector Search', icon: Sparkles },
-  { name: 'Python (NumPy / PyTorch)', category: 'Core Language', icon: Terminal },
-  { name: 'Azure OpenAI', category: 'LLM Infrastructure', icon: Cloud },
-  { name: 'Docker', category: 'Containerization', icon: Boxes },
-  { name: 'React & TypeScript', category: 'Frontend', icon: Code2 },
-  { name: 'PostgreSQL', category: 'Relational DB', icon: Database },
-  { name: 'Playwright & Scrapy', category: 'Scraping', icon: Globe },
-  { name: 'Hybrid Dense/Sparse RAG', category: 'Architecture', icon: Cpu },
-  { name: 'CI/CD & Git', category: 'DevOps', icon: Layers },
+  { name: 'Gemini', category: 'LLM & Multimodal', icon: Sparkles },
+  { name: 'Pinecone', category: 'Vector Search', icon: Database },
+  { name: 'Azure AI Search', category: 'Hybrid Retrieval', icon: Cloud },
+  { name: 'FastAPI', category: 'Async Backend', icon: Server },
+  { name: 'GPT', category: 'Entity Enrichment', icon: Cpu },
+  { name: 'Document AI', category: 'Fact Extraction', icon: FileText },
+  { name: 'Tavily', category: 'Agent Search API', icon: Globe },
+  { name: 'VoyageAI', category: 'Dense Embeddings', icon: Sparkles },
+  { name: 'Playwright', category: 'Resilient Scraping', icon: Terminal },
+  { name: 'Elasticsearch', category: 'Semantic Matching', icon: Search },
+  { name: 'Tele-CRM', category: 'GTM & Pipeline', icon: TrendingUp },
+  { name: 'React & TypeScript', category: 'Full-Stack UI', icon: Code2 },
+  { name: 'Jinja', category: 'Templated Reports', icon: Layers },
+  { name: 'Luma & Meetups', category: 'Dev Community', icon: Users },
+  { name: 'Git & GitHub', category: 'DevOps & PRs', icon: Boxes },
+  { name: 'RAG Pipelines', category: 'Architecture', icon: Workflow },
 ];
 
 export const TechMarquee: React.FC = () => {

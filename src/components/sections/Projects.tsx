@@ -57,25 +57,24 @@ const TiltCard: React.FC<TiltCardProps> = ({ children, className = '' }) => {
 };
 
 // Project multi-image views metadata
-// [ADD PHOTO: Drop additional project screenshot paths below]
 const DRYRUN_GALLERY = [
   {
     id: 'dashboard',
-    label: 'Dashboard Overview',
-    src: '/images/dryrun-preview.png', // [ADD PHOTO: Primary DryRun live preview]
-    caption: 'Real-time pipeline simulator with O*NET career taxonomy mapping',
+    label: 'Diagnostic Funnel',
+    src: '/images/dryrun-preview.png',
+    caption: '6-Step AI diagnostic funnel grounded in O*NET labor taxonomy',
   },
   {
     id: 'taxonomy',
-    label: 'Taxonomy Graph',
-    src: '/images/dryrun-preview.png', // [ADD PHOTO: Swap for DryRun taxonomy/graph screenshot]
-    caption: 'Entity graph & structured skill gap breakdown',
+    label: 'Ikigai & Trajectory',
+    src: '/images/dryrun-preview.png',
+    caption: 'Zero-hallucination career roadmap & branch simulation',
   },
   {
-    id: 'evaluation',
-    label: 'Benchmark View',
-    src: '/images/dryrun-preview.png', // [ADD PHOTO: Swap for DryRun evaluation metrics screenshot]
-    caption: 'Low-latency similarity calculation and prompt output verification',
+    id: 'monetization',
+    label: 'Product Layer',
+    src: '/images/dryrun-preview.png',
+    caption: 'Freemium monetization gate & localized context engine',
   },
 ];
 
@@ -112,7 +111,7 @@ export const Projects: React.FC = () => {
             </h2>
           </div>
           <p className="text-xs sm:text-sm text-muted-foreground max-w-xs text-left md:text-right">
-            Zero-hallucination systems built with structured taxonomies and high-performance backends.
+            Zero-hallucination architectures, MERN AI apps, and enterprise signal-intelligence engines.
           </p>
         </div>
 
@@ -123,12 +122,12 @@ export const Projects: React.FC = () => {
             <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-3.5 border-b border-border">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-mono font-bold uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-                Flagship AI Product
+                Featured AI Engine & Product
               </div>
 
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-xs font-mono text-primary font-bold">Live in Production</span>
+                <span className="text-xs font-mono text-primary font-bold">Live App · O*NET Grounded</span>
               </div>
             </div>
 
@@ -155,7 +154,7 @@ export const Projects: React.FC = () => {
                       data-cursor="Live Demo"
                       className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-primary hover:bg-primary-hover text-primary-foreground text-xs font-semibold shadow-card transition-all group shrink-0"
                     >
-                      <span>Live Demo</span>
+                      <span>Live App</span>
                       <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </a>
                   </div>
@@ -165,7 +164,7 @@ export const Projects: React.FC = () => {
                   </p>
 
                   <div className="mt-4 space-y-2 text-xs sm:text-sm text-muted-foreground">
-                    {flagshipProject.highlights.slice(0, 3).map((h, idx) => (
+                    {flagshipProject.highlights.map((h, idx) => (
                       <div key={idx} className="flex items-start gap-2">
                         <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                         <span className="leading-snug text-foreground/90">{h}</span>
@@ -177,7 +176,7 @@ export const Projects: React.FC = () => {
                 {/* Tags */}
                 <div className="pt-3 border-t border-border flex flex-wrap items-center justify-between gap-2">
                   <div className="flex flex-wrap gap-1.5">
-                    {flagshipProject.tags.slice(0, 4).map((tag) => (
+                    {flagshipProject.tags.map((tag) => (
                       <span
                         key={tag}
                         className="px-2.5 py-0.5 text-[11px] font-mono rounded-md bg-card-subtle border border-border text-foreground font-medium"
@@ -215,7 +214,7 @@ export const Projects: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* Active Screenshot Display with Smooth Fade */}
+                  {/* Active Screenshot Display */}
                   <div className="rounded-xl overflow-hidden border border-border shadow-card relative group/img aspect-[16/10] bg-card">
                     <AnimatePresence mode="wait">
                       <motion.div
@@ -235,7 +234,7 @@ export const Projects: React.FC = () => {
                         {/* Caption Overlay */}
                         <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent p-3 pt-6 text-white text-[11px] font-sans flex items-center justify-between">
                           <span className="truncate">{DRYRUN_GALLERY[activeGalleryIndex].caption}</span>
-                          <span className="text-[10px] font-mono opacity-80 shrink-0 ml-2">[ADD PHOTO]</span>
+                          <span className="text-[10px] font-mono opacity-80 shrink-0 ml-2">DryRun Engine</span>
                         </div>
                       </motion.div>
                     </AnimatePresence>
@@ -263,7 +262,7 @@ export const Projects: React.FC = () => {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-lg sm:text-xl font-bold font-serif text-foreground">
-              More Engineering Projects
+              Additional Systems & Applications
             </h3>
 
             {/* Carousel Controls */}
@@ -304,11 +303,17 @@ export const Projects: React.FC = () => {
                 <div className={`grid grid-cols-1 ${currentProject.imageUrl ? 'lg:grid-cols-12 gap-8' : 'gap-6'} items-center`}>
                   
                   <div className={`space-y-3 ${currentProject.imageUrl ? 'lg:col-span-7' : ''} flex-1`}>
-                    {/* Project Type Badge */}
-                    {currentProject.id === 'pharma-matchmaking' && (
+                    {/* Project Type Badges */}
+                    {currentProject.id === 'signals-to-intelligence' && (
                       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-amber/15 text-accent-amber border border-accent-amber/30 text-xs font-mono font-bold uppercase tracking-wider mb-1">
                         <span className="w-2 h-2 rounded-full bg-accent-amber animate-pulse" />
-                        Company Project · In Progress
+                        Internal R&D · BD Platform in Progress
+                      </div>
+                    )}
+                    {currentProject.id === 'smarteats' && (
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-emerald/15 text-accent-emerald border border-accent-emerald/30 text-xs font-mono font-bold uppercase tracking-wider mb-1">
+                        <Sparkles className="w-3 h-3" />
+                        MERN Web App · 95% OCR Accuracy
                       </div>
                     )}
 
@@ -410,4 +415,3 @@ export const Projects: React.FC = () => {
     </section>
   );
 };
-

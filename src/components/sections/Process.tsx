@@ -3,36 +3,36 @@ import { motion } from 'framer-motion';
 import { Database, Search, ShieldCheck, Rocket, Workflow } from 'lucide-react';
 
 // Component: Engineering Process & Workflow Section
-// Integration: SkipperUI & React Bits inspired sequential process cards with warm earthy palette
+// Integration: 4-Stage Signals-to-Intelligence Architecture & GTM Engineering Closed Loop
 
 const PROCESS_STEPS = [
   {
     step: '01',
-    title: 'Taxonomy & Data Modeling',
-    tag: 'Ingestion & Schemas',
+    title: 'Evidence Ingestion & Provenance',
+    tag: 'Signals & Web Scraping',
     icon: Database,
-    description: 'Structure domain entities, define metadata tags, and normalize data hierarchies before chunking or indexing.',
+    description: 'Ingest public signals (filings, trial registries, transcripts) with Playwright & BeautifulSoup into a versioned evidence store with source URLs, dates, and document hashes.',
   },
   {
     step: '02',
-    title: 'Hybrid Index Architecture',
-    tag: 'Dense + Sparse Retrieval',
+    title: 'Knowledge Vault & Differential Refresh',
+    tag: 'Pinecone, Azure & Gemini',
     icon: Search,
-    description: 'Pair dense vector embeddings (VoyageAI / Azure) with BM25 keyword search in Elasticsearch with cross-encoder re-ranking.',
+    description: 'Structure raw data into a shared knowledge vault with hybrid semantic retrieval (Pinecone, Azure AI Search) and differential refresh that re-analyzes only changed sections.',
   },
   {
     step: '03',
-    title: 'Benchmarking & Guardrails',
-    tag: 'Validation & Latency',
+    title: 'Persona Fit & Uncertainty Labels',
+    tag: 'Personalization at Scale',
     icon: ShieldCheck,
-    description: 'Run automated retrieval evaluations, test for hallucination boundaries, and profile sub-second endpoint response times.',
+    description: 'Match company findings to prospect roles and consulting capabilities, generating tailored BD angles with evidence links, confidence intervals, and uncertainty labels.',
   },
   {
     step: '04',
-    title: 'Async Production Deployment',
-    tag: 'FastAPI & Redis',
+    title: 'Review Gating & GTM Closed Loop',
+    tag: 'Human-in-the-Loop & CRM',
     icon: Rocket,
-    description: 'Deploy containerized microservices with Redis cache layers, asynchronous task queues, and structured logging.',
+    description: 'Human-in-the-loop review for outreach drafts, update propagation flagging affected insights, and handoff to CRM via the instrument-measure-iterate loop.',
   },
 ];
 
@@ -46,14 +46,14 @@ export const Process: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card border border-border text-primary text-xs font-mono font-semibold uppercase tracking-wider mb-3 shadow-subtle">
               <Workflow className="w-3.5 h-3.5" />
-              Engineering Approach
+              Signals-to-Intelligence Architecture
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-black tracking-tight text-foreground">
-              How I Build <span className="italic font-normal text-primary">Data & AI Systems</span>
+              How I Build <span className="italic font-normal text-primary">AI & GTM Systems</span>
             </h2>
           </div>
           <span className="font-handwriting text-accent-amber text-lg font-bold -rotate-1 select-none">
-            ~ structured, tested, repeatable ✦
+            ~ 4-stage architecture & closed loop ✦
           </span>
         </div>
 
@@ -73,7 +73,7 @@ export const Process: React.FC = () => {
                 {/* Step Number Stamp */}
                 <div className="flex items-center justify-between mb-4">
                   <span className="font-mono text-xs font-bold text-primary px-2.5 py-1 rounded-lg bg-card-subtle border border-border/80">
-                    Step {item.step}
+                    Stage {item.step}
                   </span>
                   <div className="p-2 rounded-xl bg-card-subtle text-primary group-hover:scale-110 transition-transform">
                     <IconComp className="w-4 h-4" />
@@ -94,7 +94,7 @@ export const Process: React.FC = () => {
 
                 {/* Subtle progress indicator */}
                 <div className="mt-4 pt-3 border-t border-border/60 flex items-center justify-between text-[10px] font-mono text-muted-foreground">
-                  <span>Phase {idx + 1} of 4</span>
+                  <span>Stage {idx + 1} of 4</span>
                   <span className="text-accent-emerald font-bold">✓ Grounded</span>
                 </div>
               </motion.div>
